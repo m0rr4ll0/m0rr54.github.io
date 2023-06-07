@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>OnlineStore</title>
+        <style>
+			
+@font-face {
+font-family: "BebasNeue"; 
+src: url("fonts/BebasNeue.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+}
+
+@font-face {
+font-family: "OpenSans"; 
+src: url("fonts/OpenSans.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+}  
+
+body{
+	margin: 0;
+}
+
+button{
+	display: block;
+}
+
+.hover{
+	cursor: pointer;
+}
+
+#categories button, #sale button{
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: none;
+	background: #29c443;
+	color: #ffffff;
+	font-family: "BebasNeue";
+	font-size: 19px;
+	font-weight: 400;
+}
+
+
+#search{
+	width: 38%;
+	float: left;
+	padding: 20px 15px 15px 80px;
+}
+
+.searchbox{
+	max-width: 400px;
+	position: relative;	
+}
+
+.searchbox input{
+	float: left;
+	width: 100%;
+	height: 30px;
+	border: 1px solid #E1E1E1;
+	border-right-style: none;		
+}
+
+.searchbox .input{
+	width: 100%;
+	background: #ffffff;
+	-moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.searchbox .submit{
+	border: 1px solid #E1E1E1;
+	border-left-style: none;
+	height: 30px;
+	position: absolute;
+    width: 10%;
+    cursor: pointer;
+    background: url(image/shape-1.png) center no-repeat;
+    background-size: 60% 70%;
+ }
+
+ #header form input{
+ 	color: #a1a1a1;
+ 	font-family: "OpenSans";
+	font-size: 17px;
+	font-weight: 400;
+ }
+
+#header{
+	float: left;
+	width: 100%;
+	background: #ffffff;
+}
+
+#logo{
+	float: left;
+	padding: 15px;
+}
+
+#cart{
+	float: right;
+	padding: 15px 15px 0px 15px;
+}
+
+#cart h3 {
+	font-family: "BebasNeue";
+    margin: 3px;
+    font-size: 33px;
+	font-weight: 400;
+	float: right;
+    padding-left: 10px;
+    color: #a1a1a1;
+}    
+
+#nav{
+	background: #12b43a;
+	float: left;
+	width: 100%;
+}
+
+#nav ul{
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.wrap{
+	max-width: 803px;
+	margin: auto;
+}
+
+#nav ul li a{
+	font-family: "BebasNeue";
+	font-size: 18px;
+	font-weight: 400;
+	text-decoration: none;
+	color: white;
+	padding: 15px;
+	display: block;
+	transition: 0.3s;
+}
+
+#nav ul li a:hover{
+	background: #3bead836;
+}
+
+#nav ul li{
+	float: left;
+	list-style-type: none;
+}
+
+#nav li.icon{
+	display: none;
+	float: right;
+}
+
+#banner{
+	float: left;
+	background: #21a307;
+	width: 100%;
+}
+
+#bannerText{
+	padding-left: 30px;
+    width: 57%;
+    float: left;
+    box-sizing: border-box; 
+}
+
+#bannerImg{
+	width: 40%;
+	float: left;
+	padding: 40px 0px 40px 20px;
+
+}
+
+#bannerText h1{
+	margin: 40px 0px 0px 0px;
+	color: #ffffff;
+	font-family: "BebasNeue";
+	font-size: 61px;
+	font-weight: 400;
+}
+
+#bannerText p{
+	margin: 0px 0px 10px 0px;
+	color: #ffffff;
+	font-family: "OpenSans";
+	font-size: 17px;
+	font-weight: 400;
+}
+
+#bannerText button{
+	margin-top: 30px;
+	padding: 5px 15px;
+	border-radius: 5px;
+	border: 3px solid #ffffff;
+	background: #08963e;
+	color: #ffffff;
+	font-family: "BebasNeue";
+	font-size: 27px;
+	font-weight: 400;
+}
+
+#radio{
+	clear: both;
+	text-align: center;
+}
+
+#radioBorder {
+    padding-bottom: 20px;
+}
+
+#categories{
+	float: left;
+	width: 100%;
+	background: #ffffff;
+}
+
+.pBorder{
+    border: 1px solid #dbdbdb85;
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    padding: 5px;
+}
+
+.product{
+	padding: 5px;
+    float: left;
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.product img{
+	width: 100%;
+}
+
+.product button{
+	margin-left: 15px;
+}	
+
+.categoriesText{
+    width: 30%;
+    float: left;
+    box-sizing: border-box; 
+}
+
+.categoriesImg{
+	text-align: center;
+    width: 132px;
+    float: left;
+    box-sizing: border-box;
+
+}
+
+.product h3, #sale h3{
+	margin: 15px 0px 0px 15px;
+	color: #afafaf;
+	font-family: "BebasNeue";
+	font-size: 23px;
+	font-weight: 400;
+	width: 100%
+}
+
+#leftArrow{
+	width: 5%;
+	padding-top: 30px;
+	float: left;
+}
+
+#rightArrow{
+	width: 5%;
+	padding-top: 30px;
+	float: right;
+}
+
+#headerProduct{
+	background: #2c9403;
+	float: left;
+	width: 100%;
+}
+
+#featuredProduct h1{
+	color: #ffffff;
+	font-family: "BebasNeue";
+	font-size: 31px;
+	font-weight: 400;
+}
+
+.sBorder{
+    border: 1px solid #dbdbdb85;
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    padding: 45px;
+    box-shadow: 0px 6px 5px -2px rgb(7, 168, 42);
+}
+
+.productSale{
+	padding: 10px;
+    float: left;
+    width: 33.33%;
+    box-sizing: border-box;
+
+}
+
+#sale button{
+	display: inline;
+	margin: 0px 5px;
+}
+
+#sale{
+	float: left;
+    width: 100%;
+    background: #ffffff;
+    padding-bottom: 60px;
+}
+
+#sale img{
+	width: 100%;
+}
+
+.saleImg{
+	text-align: center;
+}
+
+#footer{
+	background: #3cc3b5;
+	float: left;
+	width: 100%;
+}
+
+#footer h3{
+	color: #ffffff;
+	font-family: "BebasNeue";
+	font-size: 27px;
+	font-weight: 400;
+
+}
+
+#footer ul li a{
+	color: #ffffff;
+	font-family: "OpenSans";
+	font-size: 15px;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+#footer ul li{
+	list-style-type: none;
+}
+
+.footerList{
+	float: left;
+    width: 25%
+}
+
+.footerBorder{      
+    width: 100%;
+    float: left;
+ } 
+ 
+ #footer h3{
+ 	padding-left: 40px;
+ }
+#productBy{
+	background: #2da89b;
+	float: left;
+	width: 100%;
+}
+
+#productBy h3{
+	color: #ffffff;
+	font-family: "OpenSans";
+	font-size: 15px;
+	font-weight: 400;
+	text-align: center;
+}
+
+@media(max-width: 820px){
+
+	ul.topnav li:not(:first-child){
+		display: none;
+	}
+
+	#nav li.icon{
+		display: block;
+	}
+	
+	.hover {       
+		display: none;
+	}
+
+	.product {
+	    margin: 0 auto;
+	    padding: 5px;
+	    float: left;
+	    width: 50%;
+	    box-sizing: border-box;	
+	}    
+
+}
+	
+@media(max-width: 820px){
+	#nav ul.topnav.responsive{
+		position: relative;
+	}
+	#nav ul.topnav.responsive li.icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	#nav ul.topnav.responsive li{
+		float: none;
+		display: inline;
+	}
+
+	#nav ul.topnav.responsive li a{
+		display: block;
+		text-align: center;
+	}
+}
+
+@media(max-width: 770px){
+	
+		#bannerImg {
+	    text-align: center;
+	    width: 100%;
+	    padding: 20px 0px 0px 0px;
+	}
+	
+		#bannerText {
+	    padding: 0px 20px;
+    	width: 100%;
+    	float: left;
+	}
+
+		#bannerText h1 {
+	    margin: 0px;
+	    color: #ffffff;
+	    font-family: "BebasNeue";
+	    font-size: 61px;
+	    font-weight: 400;
+	}
+}
+
+
+@media(max-width: 720px){
+	.productSale{
+		width: 50%
+	}
+}
+
+
+@media(max-width: 681px){
+	.footerList{
+		width: 50%
+	}
+}
+
+
+@media(max-width: 488px){
+	.productSale{
+		width: 75%;
+		margin: 0 auto;
+		float: none;
+	}
+
+	.product {
+	    margin: 0 auto;
+	    padding: 5px;
+	    width: 75%;
+	    box-sizing: border-box;
+	    float: none;	
+	}
+	.sBorder {
+		margin: 10px;
+	}
+	.pBorder {
+		margin: 5px;	
+	}
+}
+
+@media (max-width: 390px){
+	.product {
+	    margin: 0 auto;
+	    padding: 5px;
+	    width: 90%;
+	    box-sizing: border-box;
+	    float: none;
+	}
+
+	.productSale{
+		width: 90%;
+		margin: 0 auto;
+		float: none;
+	}
+}
+
+		</style>
+	</head>
+	<body>
+		
+		<!--Header с лого и поиском-->
+		<div id="header">
+			<div class="wrap">
+				<div id="logo">
+					<img src="img/logo.jpg" width="120" height="90">
+				</div>
+				<div id="search">
+					<form action="" method="post" class="searchbox">
+						<input type="search" name="" placeholder="" class="input" />
+						<input type="submit" name="" value="" class="submit" />
+					</form>
+				</div>
+				<div id="cart">
+					<img src="img/shape-2.png" width="60" height="60"><h3>$300</h3>
+				</div>
+			</div>	
+		</div>
+		<!--Header с лого и поиском-->
+
+		<!--Ссылки навигации-->
+		<div id="nav">
+			<div class="wrap">
+				<ul class="topnav" id="myTopnav">
+					<li><a href="#">Sale</a></li>
+				</ul>
+			</div>	
+		</div>
+		<!--Ссылки навигации-->
+		
+		<!--Центральный банер-->
+		<div id="banner" >
+			<div class="wrap">
+				<div id="bannerImg">
+					<img src="img/layer-1.png" width="400" height="400">
+				</div>
+				<div id="bannerText">
+					<h1>Cowhide</br>Standard Crew</h1>
+					<p>White coloured, short-sleeved, printed T-shirt for men by Levi's. This crew-neck T-shirt is made of organic cotton and comes in a regular fit. </p>
+					<button>Shop Now</button>
+				</div>
+				<div id="radio">
+					<div id="radioBorder">
+						<img class="hover" src="img/ellipse-1.png">
+						<img class="hover" src="img/ellipse-1.png">
+						<img class="hover" src="img/ellipse-1.png">
+						<img class="hover" src="img/ellipse-1-copy-3.png">
+						<img class="hover" src="img/ellipse-1.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	    <!--Центральный банер-->
+		
+		<!--Категории-->
+		<div id="categories">
+			<div class="wrap">
+				<div id="leftArrow" class="hover">
+					<img src="img/left.svg">
+				</div>
+				<div class="product">
+					<div class="pBorder">
+						<div class="categoriesImg">
+							<img src="https://http2.mlstatic.com/control-xbox-one-D_NQ_NP_938739-MLM31219946122_062019-F.jpg" width="140" height="140">
+						</div>
+						<div class="categoriesText">
+							<h3>Branden</br>CONTROL</h3>
+							<button>Shop</button>
+						</div>
+				  	</div>
+				</div>
+				<div class="product">
+					<div class="pBorder">
+						<div class="categoriesImg">
+							<img src="https://th.bing.com/th/id/OIP.yXtw6K_5sSWxMLWoMNvUDwHaIx?pid=ImgDet&rs=1">
+						</div>
+						<div class="categoriesText">
+							<h3>Branden</br>SERIES S</h3>
+							<button>Shop</button>
+						</div>
+					</div>
+				</div>
+				<div class="product">
+					<div class="pBorder">
+						<div class="categoriesImg">
+							<img src="https://th.bing.com/th/id/OIP.yPRENXu-vB6bDyOa_IqHugHaHQ?pid=ImgDet&rs=1">
+						</div>
+						<div class="categoriesText">
+							<h3>Branden</br>SERIES X</h3>
+							<button>Shop</button>
+						</div>
+					</div>
+				</div>
+				<div id="rightArrow" class="hover">
+					<img src="image/right.svg">
+				</div>
+			</div>
+		</div>
+		<!--Категории-->
+
+		<!--Продукты-->
+		<div id="headerProduct">
+			<div class="wrap">
+				<div id="featuredProduct">
+					<h1>Featured Products</h1>
+				</div>
+			</div>
+		</div>
+
+		<div id="sale">
+			<div class="wrap">
+				<div class="productSale">
+					<div class="sBorder">
+						<div class="saleImg">
+							<img src="img/layer-1.png">
+						</div>
+						<div class="saleText">
+							<h3>XBOX CONTROL</br>$100<button>Buy now</button></h3>
+						</div>
+				  	</div>
+				</div>
+				<div class="productSale">
+					<div class="sBorder">
+						<div class="saleImg">
+							<img src="https://pedidos.co/tienda/wp-content/uploads/2021/03/audifonos-inalambricos-xbox-negro-2-889842615319-1536x1536.jpg">
+						</div>
+						<div class="saleText">
+							<h3>AUDIFONOS XBOX</br>$300<button>Buy now</button></h3>
+						</div>
+				  	</div>
+				</div>
+				<div class="productSale">
+					<div class="sBorder">
+						<div class="saleImg">
+							<img src="https://th.bing.com/th/id/OIP.A0rZecj3SbU0h5BfscDzCgHaE8?pid=ImgDet&rs=1">
+						</div>
+						<div class="saleText">
+							<h3>TARJETA DE GAME PASS</br>$300<button>Buy now</button></h3>
+						</div>
+				  	</div>
+
+
+	
+
+		<script type="text/javascript" src="javascript.js"></script>
+
+	</body>
+</html>
